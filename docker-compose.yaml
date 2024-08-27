@@ -1,0 +1,35 @@
+
+#aqui se agregan contenedores a partir de una imagen y le asognamoss ubciaciones, variables de entorno etc.
+services:
+  db:  
+    image: postgres:14.1-alpine
+    container_name: database
+    restart: always
+    env_file:
+      - .env
+    volumes: 
+      - ./sql:/docker-entrypoint-initdb.d
+    ports: 
+      - "9091:5432"
+
+  pgadmin: 
+    image: dpage/pgadmin4
+    env_file:
+      - .env
+    ports:
+      - "9080:80"
+    depends_on:
+      - db
+
+  app:
+    build: ./Backend
+    volumes:
+      - .:/app
+    ports:
+      - "8081:8000"
+    depends_on:
+      - db
+    restart: always
+    
+
+  

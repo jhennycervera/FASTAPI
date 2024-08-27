@@ -1,6 +1,0 @@
-# Python
-_pycache_/
-*.pyc
-
-# Environments
-fastapienv/
