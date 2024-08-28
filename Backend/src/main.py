@@ -3,9 +3,18 @@ from .database import SessionLocal
 from sqlalchemy.orm import  Session
 from .models import Book
 from .schemas import BookBase
+from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
 
-app=FastAPI()
+# Allow all origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows any origin
+    allow_credentials=True,  # Allow cookies to be sent with requests
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
+)
 
 # Dependencia para obtener la sesión de base de datos
 def get_db():

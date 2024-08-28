@@ -24,7 +24,7 @@ services:
   app:
     build: ./Backend
     volumes:
-      - .:/app
+      - ./Backend/src:/app/src
     ports:
       - "8081:8000"
     depends_on:
