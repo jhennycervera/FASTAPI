@@ -4,6 +4,8 @@ from sqlalchemy.orm import  Session
 from .models import Book
 from .schemas import BookBase
 from fastapi.middleware.cors import CORSMiddleware
+from time import sleep
+
 
 app = FastAPI()
 
@@ -27,7 +29,8 @@ def get_db():
 #leer libro
 @app.get("/books")
 async def read_all_books(db: Session = Depends(get_db)):
-    books = db.query(Book).all()
+    books = db.query(Book).all()    
+    sleep(3)
     return books
 
 

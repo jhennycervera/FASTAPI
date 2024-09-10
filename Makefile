@@ -7,3 +7,6 @@ down:
 
 shell-into-app:
 	@docker compose exec app bash
+
+format:
+	npx prettier --write "**/*.{js,jsx,ts,tsx}"
