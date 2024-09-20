@@ -17,6 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 #copiar todos los archivos de la aplicacion (./src es el local) al contenedor en el directorio /src
 COPY ./src /app/src
+COPY alembic.ini /app/alembic.ini
 
 #exponer el puerto en que la aplicacion estara escuchando
 EXPOSE 8000

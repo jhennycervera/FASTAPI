@@ -10,3 +10,4 @@ class Book(Base):
     title = Column(String, index=True)
     author = Column(String, index=True)
     foundation_date =  Column(Date)
+

@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       {" "}
-      {/* Proporciona el cliente a toda la app */}
+      {/* Proporciona el cliente a toda el componente app  y sus hijos*/}
       <App />
     </QueryClientProvider>
   </StrictMode>,
